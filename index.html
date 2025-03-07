@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">`
-    <title>Document</title>
-
+    <title>Wonmen Day</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
         * {
@@ -1527,7 +1527,7 @@
                 <span class="title__letter--05">n's</span>
             </span>
         </div>
-        <p hidden  id="hide_3" style="
+        <p hidden id="hide_3" style="
         margin: 0;
     font-size: 7rem;
     text-align: right;
@@ -1536,14 +1536,52 @@
             Day ❤️
         </p>
     </div>
+    <div class="fade-text">
+        <p>💐 Chúc em yêu một ngày 8/3 thật rực rỡ như những bông hoa xinh đẹp nhất! 💐</p>
+        <p>🌸 Cảm ơn em đã đến bên anh, làm cho cuộc sống của anh thêm ý nghĩa. 🌸</p>
+        <p>❤️ Yêu em mãi mãi! ❤️</p>
+    </div>
+
+    <style>
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .fade-text {
+            position: absolute;
+            left: 50%;
+            bottom: 10%;
+            transform: translateX(-50%);
+            font-size: 30px;
+            width: 600px;
+            padding: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            color: #c80000;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            animation: fadeInUp 2s ease-out forwards;
+            left: 0;
+            bottom: 1;
+        }
+    </style>
 
     <script>
-setTimeout(() => {
-    document.querySelector("#chocolate_rains").hidden = false;
-    document.querySelector("#hide_2").hidden = false;
-    document.querySelector("#hide_3").hidden = false;
-    document.querySelector("body").style.backgroundColor='#fff';
-}, 6000);
+        setTimeout(() => {
+            document.querySelector("#chocolate_rains").hidden = false;
+            document.querySelector("#hide_2").hidden = false;
+            document.querySelector("#hide_3").hidden = false;
+            document.querySelector("body").style.backgroundColor = '#fff';
+        }, 6000);
     </script>
 </body>
 
