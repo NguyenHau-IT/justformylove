@@ -1,117 +1,417 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Kỷ niệm 3 tháng bên nhau</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Chúc mừng 20/10 — Ngày Phụ nữ Việt Nam</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
     <style>
+        :root {
+            --bg1: #ffecd2;
+            --bg2: #fcb69f;
+            --card: #ffffffaa;
+            --accent: #ff5d8f;
+            --muted: #6b6b6b;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
         body {
+            height: 100%;
             margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(120deg, #ffe6eb, #fff4f8);
-            overflow: hidden;
+            font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--bg1), var(--bg2));
             display: flex;
-            justify-content: center;
             align-items: center;
-            height: 100vh;
+            justify-content: center;
+            padding: 40px;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility
+        }
+
+        .scene {
+            width: 100%;
+            max-width: 1100px;
+            position: relative
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.75));
+            border-radius: 20px;
+            padding: 36px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            backdrop-filter: blur(6px);
+            overflow: hidden
+        }
+
+        .left {
+            flex: 1;
+            min-width: 260px
+        }
+
+        .right {
+            width: 360px;
+            display: flex;
             flex-direction: column;
+            align-items: center;
+            gap: 12px
         }
 
         h1 {
-            font-size: 2.5rem;
-            color: #ff4d6d;
-            margin-bottom: 10px;
-            text-align: center;
+            font-family: 'Great Vibes', cursive;
+            font-size: 100px;
+            margin: 0;
+            line-height: 0.95;
+            color: var(--accent);
+            text-shadow: 0 3px 0 rgba(0, 0, 0, 0.03)
         }
 
-        p {
-            font-size: 1.2rem;
-            color: #333;
-            margin-bottom: 30px;
-            text-align: center;
+        .subtitle {
+            font-size: 30px;
+            margin-top: 6px;
+            color: var(--muted);
+            font-weight: 600
         }
 
-        button {
-            padding: 10px 20px;
-            font-size: 1rem;
-            background-color: #ff99aa;
-            border: none;
-            border-radius: 25px;
-            color: white;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        button:hover {
-            background-color: #ff6b81;
-        }
-
-        .message {
-            display: none;
-            margin-top: 20px;
+        p.lead {
             color: #444;
-            font-size: 1.1rem;
-            text-align: center;
-            max-width: 400px;
-            line-height: 1.6;
-            background: #fff0f3;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 18px;
+            font-size: 20px;
+            line-height: 1.5
+        }
+
+        .flowers {
+            position: absolute;
+            right: -60px;
+            top: -40px;
+            opacity: 0.12;
+            transform: rotate(15deg);
+            filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.06))
+        }
+
+        .cta {
+            display: flex;
+            gap: 12px;
+            margin-top: 22px
+        }
+
+        .btn {
+            padding: 12px 18px;
+            border-radius: 12px;
+            border: 0;
+            background: var(--accent);
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(255, 93, 143, 0.18)
+        }
+
+        .btn.secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid rgba(255, 93, 143, 0.14);
+            font-weight: 600
+        }
+
+        .card-note {
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 10px
+        }
+
+        /* hearts animation */
+        .heart-wrap {
+            position: absolute;
+            right: 85px;
+            bottom: 70px;
+            display: flex;
+            gap: 8px
         }
 
         .heart {
-            position: absolute;
-            color: #ff4d6d;
-            animation: floatUp 5s linear infinite;
-            font-size: 20px;
+            width: 46px;
+            height: 46px;
+            background: radial-gradient(circle at 30% 30%, #fff, #ffd0dc 40%, #ff5d8f 60%);
+            clip-path: path('M24 42s-9-6-12-11c-3-5 1-12 8-12 4 0 6 3 6 3s2-3 6-3c7 0 11 7 8 12-3 5-12 11-12 11z');
+            transform-origin: center;
+            opacity: 0.95;
+            filter: drop-shadow(0 6px 18px rgba(255, 93, 143, 0.18));
+            /* use CSS variable --s to preserve per-heart scale while animating translate/rotate */
+            transform: translateY(0) scale(var(--s, 1));
+            will-change: transform;
+            animation: wave 3s ease-in-out infinite;
         }
 
-        @keyframes floatUp {
+        @keyframes wave {
             0% {
-                transform: translateY(0) scale(1);
-                opacity: 1;
+                transform: translateY(0) scale(var(--s, 1)) rotate(-4deg);
+            }
+
+            25% {
+                transform: translateY(-12px) scale(var(--s, 1)) rotate(-2deg);
+            }
+
+            50% {
+                transform: translateY(0) scale(var(--s, 1)) rotate(0deg);
+            }
+
+            75% {
+                transform: translateY(12px) scale(var(--s, 1)) rotate(2deg);
             }
 
             100% {
-                transform: translateY(-800px) scale(1.5);
+                transform: translateY(0) scale(var(--s, 1)) rotate(-4deg);
+            }
+        }
+
+        /* paragraph entrance + gentle float */
+        @keyframes slideUpFade {
+            0% {
                 opacity: 0;
+                transform: translateY(10px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes leadFloat {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .lead {
+            /* entrance then slow float */
+            animation: slideUpFade 900ms cubic-bezier(.2, .9, .2, 1) both,
+                leadFloat 6s ease-in-out 1s infinite;
+            will-change: transform, opacity;
+        }
+
+        .lead:hover {
+            /* pause float and give a gentle lift on hover */
+            animation-play-state: paused, paused;
+            transform: translateY(-8px) scale(1.02);
+            transition: transform 220ms ease;
+        }
+
+        /* responsive */
+        @media (max-width:860px) {
+            .card {
+                flex-direction: column;
+                align-items: stretch
+            }
+
+            .right {
+                width: 100%
+            }
+
+            h1 {
+                font-size: 44px
+            }
+        }
+
+        /* extra small screens: better mobile layout */
+        @media (max-width:600px) {
+            body{padding:20px}
+            .card{padding:20px;gap:16px}
+            .card{flex-direction:column;align-items:center}
+            .left{order:2;width:100%;min-width:0}
+            .right{order:1;width:100%;display:flex;flex-direction:column;align-items:center}
+
+            /* hide decorative large flowers to reduce clutter */
+            .flowers{display:none}
+
+            h1{font-size:36px;text-align:center}
+            .subtitle{text-align:center}
+
+            p.lead{font-size:15px;line-height:1.45;text-align:center;margin:12px 0}
+
+            /* buttons stack and expand for easier tapping */
+            .cta{flex-direction:column;align-items:stretch;width:100%}
+            .btn{width:100%;padding:14px 16px;border-radius:12px}
+            .btn.secondary{margin-top:8px}
+
+            /* bouquet smaller and centered */
+            .bouquet{max-width:120px;margin-bottom:6px}
+
+            /* hearts smaller and centered at bottom of right column */
+            .heart-wrap{position:relative;right:auto;bottom:auto;margin-top:6px;justify-content:center}
+            .heart{width:36px;height:36px}
+        }
+
+        /* very small phones */
+        @media (max-width:380px) {
+            .card{padding:14px}
+            h1{font-size:30px}
+            .lead{font-size:14px}
+            .bouquet{max-width:100px}
+            .btn{padding:12px;font-size:15px}
+        }
+
+        /* confetti canvas covers whole scene */
+        #confetti {
+            position: absolute;
+            inset: 0;
+            pointer-events: none
+        }
+
+        .bouquet {
+            display: block;
+            margin: 6px auto 2px;
+            max-width: 160px;
+        }
+
+        .bouquet img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+        }
+
+        @media (max-width:860px) {
+            .bouquet {
+                max-width: 120px;
             }
         }
     </style>
 </head>
 
 <body>
-    <h1>💗 3 Tháng Bên Nhau 💗</h1>
-    <p>Thời gian không quá dài, nhưng đủ để trái tim biết rằng nó đã tìm thấy một điều quý giá...</p>
-    <button onclick="showMessage()">Xem điều anh muốn nói</button>
+    <div class="scene">
+        <canvas id="confetti"></canvas>
 
-    <div class="message" id="message">
-        Ba tháng qua là hành trình tuyệt vời mà chúng ta đã cùng nhau đi qua – những tin nhắn, những nụ cười, những
-        khoảnh khắc yên bình bên nhau.<br><br>
-        Anh/Em không hứa trước điều gì, nhưng chắc chắn một điều: Anh muốn tiếp tục đi cùng em, không chỉ 3
-        tháng, mà là thật lâu về sau…<br><br>
-        Cảm ơn vì đã đến, và làm cuộc sống của anh trở nên dịu dàng đến thế. 💖
+        <div class="card" role="main" aria-labelledby="title">
+            <div class="left">
+                <h1 id="title">Chúc mừng 20/10</h1>
+                <div class="subtitle">Ngày Phụ nữ Việt Nam</div>
+
+                <p class="lead">🌹Gửi đến em – người phụ nữ tuyệt vời nhất trong lòng anh:<br><br>
+
+                    Nhân ngày 20/10, anh chúc em luôn xinh đẹp, dịu dàng và hạnh phúc,
+                    mỗi ngày đều bắt đầu bằng nụ cười, và kết thúc bằng bình yên.
+                    Cảm ơn em vì đã luôn ở bên anh trong thời gian qua,
+                    vì đã khiến cuộc sống này ấm áp và ý nghĩa hơn bao giờ hết.<br><br>
+
+                    Chúc em luôn mạnh mẽ nhưng vẫn mềm mại như gió,
+                    tự tin tỏa sáng và được yêu thương thật nhiều — không chỉ hôm nay,
+                    mà mỗi ngày trong năm. 💕<br><br>
+
+                    Chúc mừng Ngày Phụ nữ Việt Nam 20/10!
+                    Em xứng đáng nhận được mọi điều đẹp đẽ nhất trên thế gian này.
+                </p>
+
+            </div>
+
+            <div class="right" aria-hidden="false">
+                <svg class="flowers" width="420" height="300" viewBox="0 0 420 300" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0" stop-color="#fff3f6" />
+                            <stop offset="1" stop-color="#ffd1e0" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="80" cy="60" r="48" fill="url(#g1)" stroke="#ffb0cc" stroke-width="2" />
+                    <circle cx="140" cy="120" r="36" fill="#ffd6e6" />
+                    <circle cx="230" cy="80" r="60" fill="#fff0f4" />
+                    <g transform="translate(280,170)">
+                        <path d="M10 40 C 30 10, 60 10, 80 40 C 60 60, 30 60, 10 40 Z" fill="#ff9bbf" />
+                    </g>
+                </svg>
+
+                <!-- Bouquet illustration (inline SVG) -->
+                <!-- Bouquet image: save the provided image as 'bouquet.jpg' in the same folder as this HTML file -->
+                <figure class="bouquet" role="img" aria-label="Bó hoa tươi">
+                    <img src="bouquet.png" alt="Bó hoa đỏ" />
+                </figure>
+
+                <div style="text-align:center;padding:18px 6px">
+                    <div style="font-size:14px;color:var(--muted);">Dành tặng</div>
+                    <div style="font-weight:800;font-size:20px;color:#333;margin-top:6px">Người phụ nữ trong đời anh
+                    </div>
+                </div>
+
+                <div class="heart-wrap" aria-hidden="true">
+                    <div class="heart" style="--s:0.9; animation-delay:0s;"></div>
+                    <div class="heart" style="--s:0.75; animation-duration:3.6s; animation-delay:0.6s;"></div>
+                    <div class="heart" style="--s:0.85; animation-duration:2.8s; animation-delay:0.3s;"></div>
+                    <div class="heart" style="--s:1; animation-duration:3.2s; animation-delay:0.9s;"></div>
+                    <div class="heart" style="--s:0.7; animation-duration:4s; animation-delay:0.2s;"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
-        function showMessage() {
-            document.getElementById("message").style.display = "block";
-        }
+        // Simple confetti implementation (lightweight)
+        (function () {
+            const canvas = document.getElementById('confetti');
+            const ctx = canvas.getContext('2d');
+            let W, H, particles = [];
 
-        setInterval(() => {
-            const heart = document.createElement('div');
-            heart.classList.add('heart');
-            heart.innerHTML = '💖';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.fontSize = (Math.random() * 10 + 15) + 'px';
-            document.body.appendChild(heart);
+            function resize() { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight }
+            window.addEventListener('resize', resize);
+            resize();
 
-            setTimeout(() => {
-                heart.remove();
-            }, 5000);
-        }, 300);
+            function rand(min, max) { return Math.random() * (max - min) + min }
+
+            function createParticles(x, y) {
+                const count = 80;
+                for (let i = 0; i < count; i++) {
+                    particles.push({
+                        x: x + rand(-40, 40),
+                        y: y + rand(-20, 20),
+                        vx: rand(-6, 6),
+                        vy: rand(-10, -2),
+                        size: rand(6, 14),
+                        color: `hsl(${~~rand(320, 360)},80%,${~~rand(50, 70)}%)`,
+                        life: rand(60, 140),
+                        rot: rand(0, 360),
+                        vr: rand(-6, 6)
+                    })
+                }
+            }
+
+            function step() {
+                ctx.clearRect(0, 0, W, H);
+                for (let i = particles.length - 1; i >= 0; i--) {
+                    const p = particles[i];
+                    p.x += p.vx; p.y += p.vy; p.vy += 0.2; p.rot += p.vr; p.life--;
+                    ctx.save();
+                    ctx.translate(p.x, p.y); ctx.rotate(p.rot * Math.PI / 180);
+                    ctx.fillStyle = p.color;
+                    ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+                    ctx.restore();
+                    if (p.life <= 0 || p.y > H + 50) particles.splice(i, 1);
+                }
+                requestAnimationFrame(step);
+            }
+            step();
+        })();
     </script>
 </body>
 
