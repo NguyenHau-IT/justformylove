@@ -235,7 +235,16 @@
         /* extra small screens: better mobile layout */
         @media (max-width:600px) {
             /* avoid vertical centering on small viewports (prevents top being cut off) */
-            body{padding:20px; align-items:flex-start; min-height:100vh; padding-top:calc(20px + env(safe-area-inset-top));}
+            body{
+                padding:20px;
+                align-items:flex-start;
+                min-height:100vh;
+                padding-top:calc(20px + env(safe-area-inset-top));
+                /* ensure bottom content isn't hidden under browser UI/notch and allow scrolling */
+                padding-bottom:calc(20px + env(safe-area-inset-bottom));
+                overflow-y:auto;
+                -webkit-overflow-scrolling:touch;
+            }
             .card{padding:20px;gap:16px}
             .card{flex-direction:column;align-items:center}
             .left{order:2;width:100%;min-width:0}
