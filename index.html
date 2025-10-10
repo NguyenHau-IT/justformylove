@@ -241,9 +241,6 @@
                 align-items: flex-start;
                 min-height: 110vh;
                 padding-top: calc(20px + env(safe-area-inset-top));
-                /* ensure bottom content isn't hidden under browser UI/notch and allow scrolling
-                   add extra buffer (+56px) for opaque nav bars on some devices */
-                padding-bottom:calc(20px + env(safe-area-inset-bottom) + 56px);
                 overflow-y: auto;
                 -webkit-overflow-scrolling: touch;
             }
