@@ -7,8 +7,26 @@ $(document).ready(function () {
     const totalPages = 8;
     let isOpen = false;
 
-    $envelope.on('click', function () {
-        if (isOpen) nextLyric();
+    $envelope.on('click', function (e) {
+        // Ignore clicks from buttons inside envelope
+        if ($(e.target).hasClass('btn-style') || $(e.target).hasClass('gift-button') || $(e.target).is('button')) {
+            console.log("Button click detected, ignoring envelope click");
+            return;
+        }
+        if (isOpen) {
+            // If on page 8, show modal instead of going to next page
+            if (currentPage === 8) {
+                console.log("Page 8 click - showing modal");
+                if (typeof showBirthdayMessage === 'function') {
+                    showBirthdayMessage();
+                } else {
+                    console.log("showBirthdayMessage function not found");
+                }
+            } else {
+                console.log("Envelope click - going to next page");
+                nextLyric();
+            }
+        }
     });
 
     $openBtn.on('click', function () {

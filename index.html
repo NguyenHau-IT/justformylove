@@ -1,500 +1,355 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="vi">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Chúc mừng 20/10 — Ngày Phụ nữ Việt Nam</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;800&display=swap"
-        rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 Chúc Mừng Sinh Nhật Em Yêu! 💕</title>
+    <link rel="stylesheet" href="style/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-        :root {
-            --bg1: #ffecd2;
-            --bg2: #fcb69f;
-            --card: #ffffffaa;
-            --accent: #ff5d8f;
-            --muted: #6b6b6b;
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap');
+
+        .birthday-container {
+            text-align: center;
+            padding: 10px;
+            font-family: 'Nunito', sans-serif;
+            flex-shrink: 0;
         }
 
-        * {
-            box-sizing: border-box
+        .main-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #ff69b4;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin: 5px 0;
+            animation: glow 2s ease-in-out infinite alternate;
         }
 
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial
+        .sub-title {
+            font-size: 1.3rem;
+            color: #ff1493;
+            margin: 5px 0;
+            font-weight: 600;
         }
 
-        body {
-            background: linear-gradient(135deg, var(--bg1), var(--bg2));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px;
-            -webkit-font-smoothing: antialiased;
-            text-rendering: optimizeLegibility
-        }
-
-        .scene {
-            width: 100%;
-            max-width: 1100px;
-            position: relative
-        }
-
-        .card {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.75));
-            border-radius: 20px;
-            padding: 36px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-            display: flex;
-            gap: 28px;
-            align-items: center;
-            backdrop-filter: blur(6px);
-            overflow: hidden
-        }
-
-        .left {
-            flex: 1;
-            min-width: 260px
-        }
-
-        .right {
-            width: 360px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px
-        }
-
-        h1 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 100px;
-            margin: 0;
-            line-height: 0.95;
-            color: var(--accent);
-            text-shadow: 0 3px 0 rgba(0, 0, 0, 0.03)
-        }
-
-        .subtitle {
-            font-size: 30px;
-            margin-top: 6px;
-            color: var(--muted);
-            font-weight: 600
-        }
-
-        p.lead {
-            color: #444;
-            margin-top: 18px;
-            font-size: 20px;
-            line-height: 1.5
-        }
-
-        .flowers {
-            position: absolute;
-            right: -60px;
-            top: -40px;
-            opacity: 0.12;
-            transform: rotate(15deg);
-            filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.06))
-        }
-
-        .cta {
-            display: flex;
-            gap: 12px;
-            margin-top: 22px
-        }
-
-        .btn {
-            padding: 12px 18px;
-            border-radius: 12px;
-            border: 0;
-            background: var(--accent);
-            color: white;
+        .date-highlight {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #ff6347;
             font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            margin: 10px 0;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 10px #ff69b4;
+            }
+
+            to {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 0 0 20px #ff69b4, 0 0 30px #ff69b4;
+            }
+        }
+
+        .btn-style {
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 6px 18px rgba(255, 93, 143, 0.18)
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .btn.secondary {
-            background: transparent;
-            color: var(--accent);
-            border: 2px solid rgba(255, 93, 143, 0.14);
-            font-weight: 600
+        .btn-style:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
-        .card-note {
-            font-size: 13px;
-            color: var(--muted);
-            margin-top: 10px
-        }
-
-        /* hearts animation */
-        .heart-wrap {
-            position: absolute;
-            right: 85px;
-            bottom: 70px;
-            display: flex;
-            gap: 8px
+        .floating-hearts {
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
         }
 
         .heart {
-            width: 46px;
-            height: 46px;
-            background: radial-gradient(circle at 30% 30%, #fff, #ffd0dc 40%, #ff5d8f 60%);
-            clip-path: path('M24 42s-9-6-12-11c-3-5 1-12 8-12 4 0 6 3 6 3s2-3 6-3c7 0 11 7 8 12-3 5-12 11-12 11z');
-            transform-origin: center;
-            opacity: 0.95;
-            filter: drop-shadow(0 6px 18px rgba(255, 93, 143, 0.18));
-            /* use CSS variable --s to preserve per-heart scale while animating translate/rotate */
-            transform: translateY(0) scale(var(--s, 1));
-            will-change: transform;
-            animation: wave 3s ease-in-out infinite;
+            color: #ff69b4;
+            font-size: 20px;
+            animation: float-up 6s linear infinite;
+            position: absolute;
         }
 
-        @keyframes wave {
-            0% {
-                transform: translateY(0) scale(var(--s, 1)) rotate(-4deg);
-            }
-
-            25% {
-                transform: translateY(-12px) scale(var(--s, 1)) rotate(-2deg);
-            }
-
-            50% {
-                transform: translateY(0) scale(var(--s, 1)) rotate(0deg);
-            }
-
-            75% {
-                transform: translateY(12px) scale(var(--s, 1)) rotate(2deg);
-            }
-
-            100% {
-                transform: translateY(0) scale(var(--s, 1)) rotate(-4deg);
-            }
-        }
-
-        /* paragraph entrance + gentle float */
-        @keyframes slideUpFade {
+        @keyframes float-up {
             0% {
                 opacity: 0;
-                transform: translateY(10px);
+                transform: translateY(100vh) scale(0);
             }
 
-            100% {
+            10% {
                 opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes leadFloat {
-            0% {
-                transform: translateY(0);
+                transform: translateY(90vh) scale(1);
             }
 
-            50% {
-                transform: translateY(-6px);
+            90% {
+                opacity: 1;
+                transform: translateY(10vh) scale(1);
             }
 
             100% {
-                transform: translateY(0);
+                opacity: 0;
+                transform: translateY(0) scale(0);
             }
         }
 
-        .lead {
-            /* entrance then slow float */
-            animation: slideUpFade 900ms cubic-bezier(.2, .9, .2, 1) both,
-                leadFloat 6s ease-in-out 1s infinite;
-            will-change: transform, opacity;
+        .birthday-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            display: none;
+            z-index: 9999;
+            max-width: 400px;
+            width: 90%;
         }
 
-        .lead:hover {
-            /* pause float and give a gentle lift on hover */
-            animation-play-state: paused, paused;
-            transform: translateY(-8px) scale(1.02);
-            transition: transform 220ms ease;
-        }
-
-        /* responsive */
-        @media (max-width:860px) {
-            .card {
-                flex-direction: column;
-                align-items: stretch
-            }
-
-            .right {
-                width: 100%
-            }
-
-            h1 {
-                font-size: 44px
-            }
-        }
-
-        /* extra small screens: better mobile layout */
-        @media (max-width:600px) {
-
-            /* avoid vertical centering on small viewports (prevents top being cut off) */
-            body {
-                padding: 20px;
-                align-items: flex-start;
-                min-height: 110vh;
-                padding-top: calc(20px + env(safe-area-inset-top));
-                overflow-y: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-
-            /* give the scene a little bottom breathing room so cards don't butt up to viewport edge */
-            .scene{padding-bottom:24px}
-
-            .card {
-                padding: 20px;
-                gap: 16px
-            }
-
-            .card {
-                flex-direction: column;
-                align-items: center
-            }
-
-            .left {
-                order: 2;
-                width: 100%;
-                min-width: 0
-            }
-
-            .right {
-                order: 1;
-                width: 100%;
-                display: flex;
-                flex-direction: column;
-                align-items: center
-            }
-
-            /* hide decorative large flowers to reduce clutter */
-            .flowers {
-                display: none
-            }
-
-            h1 {
-                font-size: 36px;
-                text-align: center
-            }
-
-            .subtitle {
-                text-align: center
-            }
-
-            p.lead {
-                font-size: 15px;
-                line-height: 1.45;
-                text-align: center;
-                margin: 12px 0
-            }
-
-            /* buttons stack and expand for easier tapping */
-            .cta {
-                flex-direction: column;
-                align-items: stretch;
-                width: 100%
-            }
-
-            .btn {
-                width: 100%;
-                padding: 14px 16px;
-                border-radius: 12px
-            }
-
-            .btn.secondary {
-                margin-top: 8px
-            }
-
-            /* bouquet smaller and centered */
-            .bouquet {
-                max-width: 120px;
-                margin-bottom: 6px
-            }
-
-            /* hearts smaller and centered at bottom of right column */
-            .heart-wrap {
-                position: relative;
-                right: auto;
-                bottom: auto;
-                margin-top: 6px;
-                justify-content: center
-            }
-
-            .heart {
-                width: 45px;
-                height: 45px
-            }
-        }
-
-        /* very small phones */
-        @media (max-width:380px) {
-            .card {
-                padding: 14px
-            }
-
-            h1 {
-                font-size: 30px
-            }
-
-            .lead {
-                font-size: 14px
-            }
-
-            .bouquet {
-                max-width: 100px
-            }
-
-            .btn {
-                padding: 12px;
-                font-size: 15px
-            }
-        }
-
-        /* confetti canvas covers whole scene */
-        #confetti {
+        .close-btn {
             position: absolute;
-            inset: 0;
-            pointer-events: none
-        }
-
-        .bouquet {
-            display: block;
-            margin: 6px auto 2px;
-            max-width: 160px;
-        }
-
-        .bouquet img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
-        }
-
-        @media (max-width:860px) {
-            .bouquet {
-                max-width: 120px;
-            }
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
         }
     </style>
 </head>
 
 <body>
-    <div class="scene">
-        <canvas id="confetti"></canvas>
+    <div class="birthday-container">
+        <h1 class="main-title">🎉 Chúc Mừng Sinh Nhật! 🎉</h1>
+        <h2 class="sub-title">Người con gái anh thương nhất</h2>
+        <div class="date-highlight">15 Tháng 12 ⭐</div>
+        <p style="color: #ff1493; font-size: 1rem; margin: 10px 0;">
+            Nhấn nút bên dưới đệ mở lá thư! 💌
+        </p>
+    </div>
 
-        <div class="card" role="main" aria-labelledby="title">
-            <div class="left">
-                <h1 id="title">Chúc mừng 20/10</h1>
-                <div class="subtitle">Ngày Phụ nữ Việt Nam</div>
+    <div class="controls" style="margin: 10px 0; text-align: center; flex-shrink: 0;">
+        <button class="btn-style" id="openBtn">💌 Mở lá thư</button>
+        <button class="btn-style" id="resetBtn" style="display:none;">🔄 Đóng lá thư</button>
+    </div>
 
-                <p class="lead">🌹Gửi đến bé Phúc – người con gái khiến anh luôn thấy đặc biệt:<br><br>
-
-                    Nhân ngày 20/10, anh chúc em luôn xinh đẹp, dịu dàng và hạnh phúc,
-                    mỗi ngày đều bắt đầu bằng nụ cười, và kết thúc bằng bình yên.
-                    Cảm ơn em vì đã xuất hiện và khiến cuộc sống của anh trở nên thú vị hơn.<br><br>
-
-                    Chúc em luôn tự tin, mạnh mẽ và được yêu thương thật nhiều — không chỉ hôm nay,
-                    mà mỗi ngày trong năm. 💕<br><br>
-
-                    Chúc mừng Ngày Phụ nữ Việt Nam 20/10!
-                    Em xứng đáng nhận được mọi điều đẹp đẽ nhất trên thế gian này.
-                </p>
-
-            </div>
-
-            <div class="right" aria-hidden="false">
-                <svg class="flowers" width="420" height="300" viewBox="0 0 420 300" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-                            <stop offset="0" stop-color="#fff3f6" />
-                            <stop offset="1" stop-color="#ffd1e0" />
-                        </linearGradient>
-                    </defs>
-                    <circle cx="80" cy="60" r="48" fill="url(#g1)" stroke="#ffb0cc" stroke-width="2" />
-                    <circle cx="140" cy="120" r="36" fill="#ffd6e6" />
-                    <circle cx="230" cy="80" r="60" fill="#fff0f4" />
-                    <g transform="translate(280,170)">
-                        <path d="M10 40 C 30 10, 60 10, 80 40 C 60 60, 30 60, 10 40 Z" fill="#ff9bbf" />
-                    </g>
-                </svg>
-
-                <!-- Bouquet illustration (inline SVG) -->
-                <!-- Bouquet image: save the provided image as 'bouquet.jpg' in the same folder as this HTML file -->
-                <figure class="bouquet" role="img" aria-label="Bó hoa tươi">
-                    <img src="../images/bouquet.png" alt="Bó hoa đỏ" />
-                </figure>
-
-                <div style="text-align:center;padding:18px 6px">
-                    <div style="font-size:14px;color:var(--muted);">Dành tặng</div>
-                    <div style="font-weight:800;font-size:20px;color:#333;margin-top:6px">Bé Phúc của anh
+    <div class="envlope-wrapper">
+        <div id="envelope">
+            <!-- Envelope front -->
+            <div class="front flap"></div>
+            <div class="front pocket"></div>
+            <!-- Envelope back with letter content -->
+            <div class="back">
+                <div class="letter">
+                    <div class="lyric-page active" id="page1">
+                        <h3 style="color: #ff1493; margin-bottom: 20px;">💝 Trang 1 💝</h3>
+                        <p>Chúc mừng sinh nhật em yêu!</p>
+                        <p>Hôm nay là ngày đặc biệt nhất</p>
+                        <p>Ngày thiên thần của anh sinh ra</p>
+                        <small style="color: #999;">Nhấn để xem tiếp...</small>
                     </div>
-                </div>
 
-                <div class="heart-wrap" aria-hidden="true">
-                    <div class="heart" style="--s:0.9; animation-delay:0s;"></div>
-                    <div class="heart" style="--s:0.75; animation-duration:3.6s; animation-delay:0.6s;"></div>
-                    <div class="heart" style="--s:0.85; animation-duration:2.8s; animation-delay:0.3s;"></div>
-                    <div class="heart" style="--s:1; animation-duration:3.2s; animation-delay:0.9s;"></div>
-                    <div class="heart" style="--s:0.7; animation-duration:4s; animation-delay:0.2s;"></div>
+                    <div class="lyric-page" id="page2">
+                        <h3 style="color: #ff1493; margin-bottom: 20px;">💖 Trang 2 💖</h3>
+                        <p>15/12 - Một ngày tuyệt vời</p>
+                        <p>Khi em đến với thế giới này</p>
+                        <p>Mang theo ánh sáng và nụ cười</p>
+                        <small style="color: #999;">Nhấn để xem tiếp...</small>
+                    </div>
+
+                    <div class="lyric-page" id="page3">
+                        <h3 style="color: #ff1493; margin-bottom: 20px;">🌟 Trang 3 🌟</h3>
+                        <p>Em là điều kỳ diệu nhất</p>
+                        <p>Trong cuộc đời của anh</p>
+                        <p>Làm cho mọi thứ đẹp hơn</p>
+                        <small style="color: #999;">Nhấn để xem tiếp...</small>
+                    </div>
+
+                    <div class="lyric-page" id="page4">
+                        <h3 style="color: #ff1493; margin-bottom: 20px;">💕 Trang 4 💕</h3>
+                        <p>Anh yêu nụ cười của em</p>
+                        <p>Yêu giọng nói ngọt ngào</p>
+                        <p>Yêu tất cả những gì ở em</p>
+                        <small style="color: #999;">Nhấn để xem tiếp...</small>
+                    </div>
+
+                    <div class="lyric-page" id="page5">
+                        <h3 style="color: #ff1493; margin-bottom: 20px;">🎀 Trang 5 🎀</h3>
+                        <p>Chúc em luôn khỏe mạnh</p>
+                        <p>Luôn hạnh phúc và xinh đẹp</p>
+                        <p>Như hôm nay và mãi mãi</p>
+                        <small style="color: #999;">Nhấn để xem tiếp...</small>
+                    </div>
+
+                    <div class="lyric-page" id="page6">
+                        <h3 style="color: #ff1493; margin-bottom: 20px;">🌹 Trang 6 🌹</h3>
+                        <p>Mong tất cả ước mơ của em</p>
+                        <p>Sẽ trở thành hiện thực</p>
+                        <p>Trong năm tuổi mới này</p>
+                        <small style="color: #999;">Nhấn để xem tiếp...</small>
+                    </div>
+
+                    <div class="lyric-page" id="page7">
+                        <h3 style="color: #ff1493; margin-bottom: 20px;">💫 Trang 7 💫</h3>
+                        <p>Anh sẽ luôn bên cạnh em</p>
+                        <p>Trong mọi khoảnh khắc</p>
+                        <p>Yêu thương và che chở em</p>
+                        <small style="color: #999;">Nhấn để xem tiếp...</small>
+                    </div>
+
+                    <div class="lyric-page" id="page8">
+                        <h3 style="color: #ff1493; margin-bottom: 20px;">💖 Cuối 💖</h3>
+                        <p style="font-weight: bold; color: #ff1493;">HAPPY BIRTHDAY!</p>
+                        <p>Yêu em nhiều lắm! 💕</p>
+                        <p>15/12 - Forever in my heart</p>
+                        <small style="color: #999;">Nhấn để xem quà đặc biệt... 🎁</small>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Birthday Message Modal -->
+    <div class="birthday-message" id="birthdayMessage">
+        <button class="close-btn" onclick="closeBirthdayMessage()">&times;</button>
+        <h2 style="color: #ff1493; font-family: 'Dancing Script', cursive; font-size: 2.5rem;">
+            🎁 Quà đặc biệt cho em! 🎁
+        </h2>
+        <div style="font-size: 1.1rem; color: #333; line-height: 1.6;">
+            <p>💝 Em có biết không?</p>
+            <p>🌟 Món quà đặc biệt nhất mà anh muốn tặng em</p>
+            <p>💕 Chính là tình yêu chân thành của anh</p>
+            <p>🌹 Và lời hứa sẽ yêu thương em mãi mãi</p>
+            <p style="font-weight: bold; color: #ff1493; margin-top: 20px;">
+                Happy 🎂 Birthday, my love!
+            </p>
+            <p style="font-size: 0.9rem; color: #666; margin-top: 15px;">
+                15/12 - Ngày đặc biệt nhất trong năm ❤️
+            </p>
+        </div>
+    </div>
+
+    <!-- Floating Hearts -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <!-- Background Music -->
+    <audio id="sound" loop>
+        <source src="audio/birthday.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="js/script.js"></script>
     <script>
-        // Simple confetti implementation (lightweight)
-        (function () {
-            const canvas = document.getElementById('confetti');
-            const ctx = canvas.getContext('2d');
-            let W, H, particles = [];
+        $(document).ready(function () {
+            // jQuery modal functions
+            window.showBirthdayMessage = function () {
+                console.log("jQuery showBirthdayMessage called!");
 
-            function resize() { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight }
-            window.addEventListener('resize', resize);
-            resize();
-
-            function rand(min, max) { return Math.random() * (max - min) + min }
-
-            function createParticles(x, y) {
-                const count = 80;
-                for (let i = 0; i < count; i++) {
-                    particles.push({
-                        x: x + rand(-40, 40),
-                        y: y + rand(-20, 20),
-                        vx: rand(-6, 6),
-                        vy: rand(-10, -2),
-                        size: rand(6, 14),
-                        color: `hsl(${~~rand(320, 360)},80%,${~~rand(50, 70)}%)`,
-                        life: rand(60, 140),
-                        rot: rand(0, 360),
-                        vr: rand(-6, 6)
-                    })
+                // Create overlay
+                if ($('#modalOverlay').length === 0) {
+                    $('<div id="modalOverlay"></div>').css({
+                        'position': 'fixed',
+                        'top': '0',
+                        'left': '0',
+                        'width': '100%',
+                        'height': '100%',
+                        'background': 'rgba(0,0,0,0.8)',
+                        'z-index': '9998'
+                    }).click(function () {
+                        closeBirthdayMessage();
+                    }).appendTo('body');
                 }
-            }
 
-            function step() {
-                ctx.clearRect(0, 0, W, H);
-                for (let i = particles.length - 1; i >= 0; i--) {
-                    const p = particles[i];
-                    p.x += p.vx; p.y += p.vy; p.vy += 0.2; p.rot += p.vr; p.life--;
-                    ctx.save();
-                    ctx.translate(p.x, p.y); ctx.rotate(p.rot * Math.PI / 180);
-                    ctx.fillStyle = p.color;
-                    ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
-                    ctx.restore();
-                    if (p.life <= 0 || p.y > H + 50) particles.splice(i, 1);
-                }
-                requestAnimationFrame(step);
+                // Show modal
+                $('#birthdayMessage').show().css('z-index', '9999');
+
+                // Create hearts
+                createHearts();
+            };
+
+            window.closeBirthdayMessage = function () {
+                console.log("jQuery closeBirthdayMessage called!");
+                $('#birthdayMessage').hide();
+                $('#modalOverlay').remove();
+            };
+            
+            // Event handler for gift button inside letter
+            $(document).on('click', '#giftButton', function(e) {
+                console.log("Gift button clicked via jQuery!");
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+                e.preventDefault();
+                
+                // Delay to ensure event is fully stopped
+                setTimeout(function() {
+                    showBirthdayMessage();
+                }, 10);
+                
+                return false;
+            });
+        });
+
+        // Create floating hearts with jQuery
+        function createHearts() {
+            const $heartsContainer = $('#floatingHearts');
+            const hearts = ['💖', '💕', '💝', '🌹', '💗', '🎀', '⭐', '🌟'];
+
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const $heart = $('<div class="heart"></div>').html(hearts[Math.floor(Math.random() * hearts.length)]);
+                    $heart.css({
+                        'left': Math.random() * 100 + 'vw',
+                        'animation-delay': Math.random() * 2 + 's'
+                    });
+                    $heartsContainer.append($heart);
+
+                    setTimeout(() => {
+                        $heart.remove();
+                    }, 6000);
+                }, i * 200);
             }
-            step();
-        })();
+        }
+
+        // Auto create hearts occasionally with jQuery
+        setInterval(() => {
+            if (Math.random() < 0.3) {
+                createHearts();
+            }
+        }, 5000);
+
+        // Initial hearts on page load
+        setTimeout(createHearts, 1000);
+
+        // Close modal when clicking outside
+        function testModalDirect() {
+            alert("jQuery test function!");
+            $('#birthdayMessage').show().css({
+                'z-index': '99999',
+                'background': 'white'
+            });
+        }
+
+        $('#birthdayMessage').click(function (e) {
+            if (e.target === this) {
+                closeBirthdayMessage();
+            }
+        });
     </script>
 </body>
 
